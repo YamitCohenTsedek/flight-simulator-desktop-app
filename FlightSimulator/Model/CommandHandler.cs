@@ -22,7 +22,6 @@ namespace FlightSimulator.Model
 
         public event EventHandler CanExecuteChanged;
 
-
         public void Execute(object parameter)
         {
             _action();
