@@ -10,6 +10,7 @@ namespace FlightSimulator.Model
     public class CommandHandler : ICommand
     {
         private Action _action;
+
         public CommandHandler(Action action)
         {
             _action = action;
