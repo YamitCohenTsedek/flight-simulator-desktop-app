@@ -23,6 +23,7 @@ namespace FlightSimulator.Model
             }
         }
         #endregion
+
         public string FlightServerIP
         {
             get { return Properties.Settings.Default.FlightServerIP; }
