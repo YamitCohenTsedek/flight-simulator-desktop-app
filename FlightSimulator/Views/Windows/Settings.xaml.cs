@@ -23,6 +23,9 @@ namespace FlightSimulator.Views.Windows
         public Settings()
         {
             InitializeComponent();
+
+
+            DataText = "";
         }
     }
 }
