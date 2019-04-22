@@ -5,53 +5,53 @@ using System.IO;
 using System.Threading;
 using System.Text;
 
-namespace FlightSimulator
+namespace FlightSimulator.Model
 {
     class Commands
     {
-        private int _ipNumber;
-        private int _portNumber;
-        private IPEndPoint _endPoint;
-        private TcpClient _currentDeviceClient;
-        private bool _isConnectedToSimulator = false;
-        private StreamWriter _writer;
-        private static Commands _instance = null;
+        private int ipNumber;
+        private int portNumber;
+        private IPEndPoint endPoint;
+        private TcpClient currentDeviceClient;
+        private bool isConnectedToSimulator = false;
+        private StreamWriter writer;
+        private static Commands instance = null;
        
-        // _isSimulatorConnected Accessors 
-        public int IsConnectedToSimulator
+        // isSimulatorConnected Accessors 
+        public bool IsConnectedToSimulator
         {
             get
             {
-                return _isConnectedToSimulator;
+                return this.isConnectedToSimulator;
             }
             set
             {
-                _isSimulatorConnected = value;
+                this.isSimulatorConnected = value;
             }
         }
 
-        // _instance Accessors 
+        // instance Accessors 
         public static Commands Instance
         {
             // singleton design pattern
             get
             {
-                if (_instance == null)
+                if (this.instance == null)
                 {
-                    _instance = new Commands();
+                    this.instance = new Commands();
                 }
-                return _instance;
+                return this.instance;
             }
         }
 
         public void Connect(string ip, int port)
         {
-            _ipNumber = ip;
-            _portpNumber = port;
-            _endPoint = new IPEndPoint(IPAddress.Parse(ip), port);
-            _currentDeviceClient = new TcpClient();
+            this.ipNumber = ip;
+            this.portpNumber = port;
+            this.endPoint = new IPEndPoint(IPAddress.Parse(ip), port);
+            this.currentDeviceClient = new TcpClient();
             // try to connect to the server until sucess
-            while (_currentDeviceClient.Connected == false)
+            while (this.currentDeviceClient.Connected == false)
             {
                 try
                 {
@@ -61,8 +61,8 @@ namespace FlightSimulator
                     continue;
                 }
             }
-            Connected = true;
-            _writer = new StreamWriter(_currentDeviceClient.GetStream());
+            this.IsConnectedToSimulator = true;
+            this.writer = new StreamWriter(_currentDeviceClient.GetStream());
         }
 
          public void SendMessageToSimulator(string info)
@@ -80,9 +80,8 @@ namespace FlightSimulator
                 currentCommand = commandsStr[i];
                 // sleep for 2000 milliseconds (delay of 2 seconds)
                 Thread.Sleep(sleepMillisecons);
-                _writer.WriteLine(currentCommand);
+                this.writer.WriteLine(currentCommand);
             }
         }
-
     }
 }
