@@ -1,90 +1,84 @@
-using FlightSimulator.ViewModel;
+using FlightSimulator.ViewModels;
 using System;
 using System.ComponentModel;
 using System.Threading;
 using System.Threading.Tasks;
 
-
 namespace FlightSimulator.Model
 {
-    class FlightBoardModel : BaseNotify
+    class FlightBoardModel: BaseNotify
     {
         private double lon;
         private double lat;
         // an instance of Info class (the server)
-        private Info info;
+        private InfoServer infoServer;
 
-        // PropertyChange event of the model
+        // PropertyChanged event of the model
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public FlightBoardModel(Info info)
-        {
-            this.info = info;
-        }
+        public FlightBoardModel(InfoServer info) => infoServer = info;
 
-        //  lon Accessors
         public double Lon
         {
-            get { return this.lon; }
+            get => lon;
             set
             {
-                this.lon = value;
+                lon = value;
                 // notify the observer (FlightBoaredViewModel) that Lon property has changed)
                 NotifyPropertyChanged("Lon");
             }
         }
 
-        //  lat Accessors
         public double Lat
         {
-            get { return this.lat; }
+            get => lat;
+
             set
             {
-                this.lat = value;
+                lat = value;
                 // notify the observer (FlightBoaredViewModel) that Lat property has changed)
                 NotifyPropertyChanged("Lat");
             }
         }
 
-        // notify the observers when the event PropertyChanged accured
-        public void NotifyPropertyChanged(string propertyName)
+        // notify the observers when the event PropertyChanged occures
+        public new void NotifyPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public bool isSimulatorConnected()
+        public bool IsSimulatorConnected()
         {
-            return this.info.isSimulatorConnected();
+            return infoServer.IsSimulatorConnected;
         }
 
 
         public void OpenServer(string ip, int port)
         {
-            this.info.OpenSocket(ip, port);
-            this.getInfo();
+            infoServer.OpenSocket(ip, port);
+            StartGetInfo();
         }
 
         // start getting info from the server
-        void startGetInfo()
+        void StartGetInfo()
         {
             // handling the information receiving in a new task
             Task t = new Task(() =>
             {
-                while (this.info.ServerShouldStop == false)
+                while (infoServer.ServerShouldStop == false)
                 {
-                    SimulatorInfo simulatorInfo = this.info.getInfoFromSimulator();
-                    this.Lon = simulatorInfo.Lon;
-                    this.Lat = simulatorInfo.Lat;
+                    SimulatorInfo simulatorInfo = infoServer.GetInfoFromSimulator();
+                    Lon = simulatorInfo.Lon;
+                    Lat = simulatorInfo.Lat;
                 }
             });
             // start the task
-            t.start();
+            t.Start();
         }
 
         void stopGetInfo()
         {
-            this.info.IsSimulatorShouldStop = true;
+            infoServer.ServerShouldStop = true;
         }
-
     }
 }
