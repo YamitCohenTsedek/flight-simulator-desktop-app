@@ -72,22 +72,6 @@
     <Compile Include="Model\InfoServer.cs" />
     <Compile Include="Model\Interface\ISettingsModel.cs" />
     <Compile Include="Model\ManualModel.cs" />
-    <Compile Include="obj\Debug\App.g.cs" />
-    <Compile Include="obj\Debug\App.g.i.cs" />
-    <Compile Include="obj\Debug\GeneratedInternalTypeHelper.g.i.cs" />
-    <Compile Include="obj\Debug\MainWindow.g.cs" />
-    <Compile Include="obj\Debug\MainWindow.g.i.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
-    <Compile Include="obj\Debug\Views\FlightBoard.g.cs" />
-    <Compile Include="obj\Debug\Views\FlightBoard.g.i.cs" />
-    <Compile Include="obj\Debug\Views\Joystick.g.cs" />
-    <Compile Include="obj\Debug\Views\Joystick.g.i.cs" />
-    <Compile Include="obj\Release\App.g.cs" />
-    <Compile Include="obj\Release\MainWindow.g.cs" />
-    <Compile Include="obj\Release\Views\FlightBoard.g.cs" />
-    <Compile Include="obj\Release\Views\Joystick.g.cs" />
     <Compile Include="ViewModels\BaseNotify.cs" />
     <Compile Include="ViewModels\FlightBoardViewModel.cs" />
     <Compile Include="ViewModels\Windows\SettingsWindowViewModel.cs" />
@@ -101,6 +85,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\AutoPilot.xaml.cs">
+      <DependentUpon>AutoPilot.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Manual.xaml.cs">
+      <DependentUpon>Manual.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
@@ -113,6 +103,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Joystick.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AutoPilot.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Manual.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -135,25 +133,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="obj\Debug\FlightSimulator.g.resources" />
-    <EmbeddedResource Include="obj\Debug\FlightSimulator.Properties.Resources.resources" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="bin\Debug\FlightSimulator.exe.config" />
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\Debug\FlightSimulator.csproj.CopyComplete" />
-    <None Include="obj\Debug\FlightSimulator.csproj.CoreCompileInputs.cache" />
-    <None Include="obj\Debug\FlightSimulator.csproj.GenerateResource.cache" />
-    <None Include="obj\Debug\FlightSimulator.csprojAssemblyReference.cache" />
-    <None Include="obj\Debug\FlightSimulator_MarkupCompile.i.cache" />
-    <None Include="obj\Debug\FlightSimulator_ohgzxnws_wpftmp.csproj.CoreCompileInputs.cache" />
-    <None Include="obj\Debug\FlightSimulator_ohgzxnws_wpftmp.csprojAssemblyReference.cache" />
-    <None Include="obj\Release\FlightSimulator.csproj.CoreCompileInputs.cache" />
-    <None Include="obj\Release\FlightSimulator_ohgzxnws_wpftmp.csproj.CoreCompileInputs.cache" />
-    <None Include="obj\Release\Views\Joystick.baml" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -168,15 +152,10 @@
     <Resource Include="bin\Debug\DynamicDataDisplay.xml" />
     <Content Include="bin\Debug\FlightSimulator.exe" />
     <Content Include="bin\Debug\FlightSimulator.pdb" />
-    <Resource Include="obj\Debug\FlightSimulator.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\FlightSimulator.exe" />
-    <Content Include="obj\Debug\FlightSimulator.pdb" />
-    <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
     <Folder Include="Connected Services\" />
-    <Folder Include="obj\Release\Views\Windows\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
