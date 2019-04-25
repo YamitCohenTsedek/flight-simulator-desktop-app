@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlightSimulator.ViewModels.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,14 +19,12 @@ namespace FlightSimulator.Views.Windows
     /// <summary>
     /// Interaction logic for Settings.xaml
     /// </summary>
-    public partial class Settings : UserControl
+    public partial class Settings : Window
     {
         public Settings()
         {
             InitializeComponent();
-
-
-            DataText = "";
+            DataContext = new SettingsWindowViewModel();
         }
     }
 }

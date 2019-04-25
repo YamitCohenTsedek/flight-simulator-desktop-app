@@ -4,9 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FlightSimulator.Views"
-             xmlns:ViewModels="clr-namespace:FlightSimulator.ViewModels"
+             xmlns:vm="clr-namespace:FlightSimulator.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -23,7 +25,7 @@
         </Grid>
         <Grid Grid.Row="1">
             <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                <Button x:Name="OK" Command="{Binding OkCommand}" FontSize="15" FontWeight="Bold" Content="OK" Margin="10" Padding="5">
+                <Button x:Name="OK" Command="{Binding OkCommand}" FontSize="12" FontWeight="Bold" Content="OK" Margin="10" Padding="5">
                     <Button.Background>
                         <LinearGradientBrush  StartPoint="0,0" EndPoint="1,1">
                             <GradientStop Color="LightGray" Offset="0"/>
@@ -32,7 +34,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button x:Name="Clear" Command="{Binding ClearCommand}" FontSize="15" FontWeight="Bold" Content="Clear" Margin="10" Padding="5">
+                <Button x:Name="Clear" Command="{Binding ClearCommand}" FontSize="12" FontWeight="Bold" Content="Clear" Margin="10" Padding="5">
                     <Button.Background>
                         <LinearGradientBrush  StartPoint="0,0" EndPoint="1,1">
                             <GradientStop Color="LightGray" Offset="0"/>

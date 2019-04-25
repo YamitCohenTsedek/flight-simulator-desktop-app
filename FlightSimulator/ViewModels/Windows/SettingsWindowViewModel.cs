@@ -19,6 +19,10 @@ namespace FlightSimulator.ViewModels.Windows
             this.model = model;
         }
 
+        public SettingsWindowViewModel()
+        {
+        }
+
         public string FlightServerIP
         {
             get { return model.FlightServerIP; }

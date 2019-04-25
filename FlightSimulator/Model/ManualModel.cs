@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Threading;
 
 namespace FlightSimulator.Model
 {
     class ManualModel
     {
-        public void SendCommandsToSimulator(string command)
+        // send every command to the simulator in a new thread
+        public void SendCommandsToSimulator(string info)
         {
             if (CommandsClient.Instance.IsConnectedToSimulator)
             {
                 Thread t = new Thread(() =>
                 {
-                    CommandsClient.Instance.SendCommandsToSimulator(command);
+                    CommandsClient.Instance.SendCommandsToSimulator(info);
                 });
                 t.Start();
             }

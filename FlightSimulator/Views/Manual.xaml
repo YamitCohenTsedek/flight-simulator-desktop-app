@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FlightSimulator.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="480" d:DesignWidth="480">
+             d:DesignHeight="450" d:DesignWidth="480">
     <Grid>
         <Grid.Resources>
             <Style TargetType="TextBlock" x:Key="LabelStyle">
@@ -44,7 +44,7 @@
         <!--RUDDER-->
         <DockPanel VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Margin="10">
             <Slider x:Name="rudder_bar" Minimum="-1" Maximum="1" IsSnapToTickEnabled="True" Orientation="Horizontal"
-                Value="{Binding Rudder}" TickFrequency="0.1" Height="60"  TickPlacement="BottomRight" ValueChanged="Rudder_bar_ValueChanged"/>
+                Value="{Binding Rudder}" TickFrequency="0.1" Height="60"  TickPlacement="BottomRight"/>
         </DockPanel>
         
         <DockPanel VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" Margin="10">
@@ -59,10 +59,10 @@
             <TextBlock Text="{Binding ElementName=throttle_bar, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Left"
                 TextAlignment="Center" Margin="0,0,10,10" FontSize="20" FontWeight="Bold"/>
             <Slider x:Name="throttle_bar" IsSnapToTickEnabled="True" Minimum="-1" Maximum="1" Value="{Binding Throttle}" TickFrequency="0.1" Width="280"
-                    TickPlacement="BottomRight" ValueChanged="Throttle_bar_ValueChanged" VerticalAlignment="Bottom"/>
+                    TickPlacement="BottomRight" VerticalAlignment="Bottom"/>
         </DockPanel>
 
         <local:Joystick x:Name="Joy" Grid.Column="1" Grid.Row="1" Aileron="{Binding Aileron, Mode=OneWayToSource}"
-                            Elevator="{Binding Elevator, Mode=OneWayToSource}" ></local:Joystick>
+            Elevator="{Binding Elevator, Mode=OneWayToSource}" ></local:Joystick>
     </Grid>
 </UserControl>
