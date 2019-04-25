@@ -6,14 +6,28 @@
              xmlns:d3="http://research.microsoft.com/DynamicDataDisplay/1.0"
              xmlns:local="clr-namespace:FlightSimulator.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
-    
-    
-    
-    <DockPanel>
-        <WrapPanel DockPanel.Dock="Top" HorizontalAlignment="Center" >
-            <Button x:Name="Connect"  Content="Connect" Command="{Binding ConnectsCommand}"  Margin="0 15 5 15" Padding="5 5 5 5" Click="Connect_Click"/>
-            <Button x:Name="Settings" Content="Settings" Command="{Binding SettingsCommand}"   Margin="5 15 5 15" Padding="5 5 5 5" Click="Settings_Click"/>
+             d:DesignHeight="450" d:DesignWidth="650" Loaded="UserControl_Loaded" HorizontalAlignment="Center">
+      
+    <DockPanel Margin="10,39,10,0">
+        <WrapPanel DockPanel.Dock="Top" HorizontalAlignment="Center">
+            <Button x:Name="Connect" Content="Connect" Command="{Binding ConnectsCommand}" Margin="0 15 5 15" FontWeight="Bold" FontSize="12" Padding="5 5 5 5">
+            <Button.Background>
+                <LinearGradientBrush  StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="LightGray" Offset="0"/>
+                    <GradientStop Color="White" Offset="0.500"/>
+                    <GradientStop Color="LightGray" Offset="0.60"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            </Button>
+            <Button x:Name="Settings" Content="Settings" Command="{Binding SettingsCommand}" FontWeight="Bold" FontSize="12" Margin="5 15 5 15" Padding="5 5 5 5">
+            <Button.Background>
+                <LinearGradientBrush  StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="LightGray" Offset="0"/>
+                    <GradientStop Color="White" Offset="0.500"/>
+                    <GradientStop Color="LightGray" Offset="0.60"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            </Button>
         </WrapPanel>
         <Grid>
             <Grid.Resources>
@@ -35,10 +49,10 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <TextBlock Style="{StaticResource LabelStyle}" LayoutTransform="{StaticResource rotate}" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="-2,168,336.429,167">Lon</TextBlock>
-            <d3:ChartPlotter Grid.Row="0" Grid.Column="1" LegendVisible="False" Name="plotter" Grid.ColumnSpan="2">
+            <TextBlock Style="{StaticResource LabelStyle}" LayoutTransform="{StaticResource rotate}" VerticalAlignment="Top" Grid.ColumnSpan="2" Margin="100,170,0,100" HorizontalAlignment="Left">Lon</TextBlock>
+            <d3:ChartPlotter Grid.Row="0" Grid.Column="1" LegendVisible="False" Name="plotter" Grid.ColumnSpan="2" Margin="130,1,130,1">
             </d3:ChartPlotter>
-            <TextBlock Grid.Row="1" Style="{StaticResource LabelStyle}" HorizontalAlignment="Center" Grid.Column="2" Margin="12.571,4,384,4">Lat</TextBlock>
+            <TextBlock Grid.Row="1" Style="{StaticResource LabelStyle}" HorizontalAlignment="Center" Grid.Column="2" Margin="0,4,300,10">Lat</TextBlock>
         </Grid>
     </DockPanel>
 </UserControl>

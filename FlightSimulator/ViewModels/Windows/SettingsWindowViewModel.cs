@@ -1,4 +1,5 @@
-﻿using FlightSimulator.Model;
+﻿
+using FlightSimulator.Model;
 using FlightSimulator.Model.Interface;
 using System;
 using System.Collections.Generic;
@@ -52,7 +53,7 @@ namespace FlightSimulator.ViewModels.Windows
             }
         }
 
-     
+
 
         public void SaveSettings()
         {
@@ -100,4 +101,3 @@ namespace FlightSimulator.ViewModels.Windows
         #endregion
     }
 }
-

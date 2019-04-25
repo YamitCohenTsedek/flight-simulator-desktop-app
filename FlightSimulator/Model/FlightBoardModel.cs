@@ -14,7 +14,7 @@ namespace FlightSimulator.Model
         private InfoServer infoServer;
 
         // PropertyChanged event of the model
-        public event PropertyChangedEventHandler PropertyChanged;
+        public new event PropertyChangedEventHandler PropertyChanged;
 
         public FlightBoardModel(InfoServer info) => infoServer = info;
 
@@ -76,7 +76,7 @@ namespace FlightSimulator.Model
             t.Start();
         }
 
-        void stopGetInfo()
+        void StopGetInfo()
         {
             infoServer.ServerShouldStop = true;
         }
