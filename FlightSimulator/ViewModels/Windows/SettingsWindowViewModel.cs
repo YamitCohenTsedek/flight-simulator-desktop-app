@@ -1,4 +1,5 @@
-﻿using FlightSimulator.Model;
+﻿
+using FlightSimulator.Model;
 using FlightSimulator.Model.Interface;
 using System;
 using System.Collections.Generic;
@@ -13,14 +14,13 @@ namespace FlightSimulator.ViewModels.Windows
     public class SettingsWindowViewModel : BaseNotify
     {
         private ISettingsModel model;
-
+        public SettingsWindowViewModel()
+        {
+            this.model = new ApplicationSettingsModel();
+        }
         public SettingsWindowViewModel(ISettingsModel model)
         {
             this.model = model;
-        }
-
-        public SettingsWindowViewModel()
-        {
         }
 
         public string FlightServerIP
@@ -53,7 +53,7 @@ namespace FlightSimulator.ViewModels.Windows
             }
         }
 
-     
+
 
         public void SaveSettings()
         {
@@ -63,6 +63,9 @@ namespace FlightSimulator.ViewModels.Windows
         public void ReloadSettings()
         {
             model.ReloadSettings();
+            FlightServerIP = model.FlightServerIP;
+            FlightCommandPort = model.FlightCommandPort;
+            FlightInfoPort = model.FlightInfoPort;
         }
 
         #region Commands
@@ -98,4 +101,3 @@ namespace FlightSimulator.ViewModels.Windows
         #endregion
     }
 }
-

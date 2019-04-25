@@ -6,5 +6,38 @@
         xmlns:local="clr-namespace:FlightSimulator.Views.Windows"
         mc:Ignorable="d"
         Title="Settings" Height="250" Width="450">
-    
+    <Grid TextBlock.FontSize="14">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="92*"/>
+            <ColumnDefinition Width="129*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="Padding" Value="6"/>
+                <Setter Property="Margin" Value="2"/>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="Padding" Value="3"/>
+                <Setter Property="Margin" Value="3"/>
+            </Style>
+        </Grid.Resources>
+        <TextBlock Text="      Flight Server IP:" Margin="2,3,20,2"/>
+        <TextBox x:Name="serverIP" Grid.Column="1" Text="{Binding FlightServerIP}"></TextBox>
+        <TextBlock Grid.Row="1" Text="      Flight Info Port:"/>
+        <TextBox x:Name="infoPort" Grid.Row="1" Grid.Column="1" Text="{Binding FlightInfoPort}"></TextBox>
+        <TextBlock Grid.Row="2"  Grid.Column="0" Text="      Flight Command Port:"/>
+        <TextBox x:Name="commandPort" Grid.Row="2" Grid.Column="1" Text="{Binding FlightCommandPort}"></TextBox>
+        <WrapPanel Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Margin="154,43" Width="134">
+            <Button x:Name="ok" Command="{Binding ClickCommand}" Margin="5"
+        Padding="5" Height="30" Width="45">Ok</Button>
+            <Button x:Name="cancle" Command="{Binding CancelCommand}" Grid.Row="3" Grid.ColumnSpan="2" Margin="5"
+        Padding="5" Height="29" Width="69" >Cancel</Button>
+        </WrapPanel>
+    </Grid>
 </Window>
