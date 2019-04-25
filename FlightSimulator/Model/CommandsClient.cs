@@ -10,7 +10,7 @@ namespace FlightSimulator.Model
     class CommandsClient : IDisposable
     {
         private IPEndPoint endPoint;
-        //we
+        // the current devics as a client
         private TcpClient currentDeviceClient;
         private StreamWriter writer;
         private static CommandsClient instance = null;
