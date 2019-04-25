@@ -13,7 +13,10 @@ namespace FlightSimulator.ViewModels.Windows
     public class SettingsWindowViewModel : BaseNotify
     {
         private ISettingsModel model;
-
+        public SettingsWindowViewModel()
+        {
+            this.model = new ApplicationSettingsModel();
+        }
         public SettingsWindowViewModel(ISettingsModel model)
         {
             this.model = model;
@@ -59,6 +62,9 @@ namespace FlightSimulator.ViewModels.Windows
         public void ReloadSettings()
         {
             model.ReloadSettings();
+            FlightServerIP = model.FlightServerIP;
+            FlightCommandPort = model.FlightCommandPort;
+            FlightInfoPort = model.FlightInfoPort;
         }
 
         #region Commands

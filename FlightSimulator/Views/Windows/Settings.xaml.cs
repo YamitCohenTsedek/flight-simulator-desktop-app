@@ -12,20 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FlightSimulator.ViewModels.Windows;
 
 namespace FlightSimulator.Views.Windows
 {
     /// <summary>
     /// Interaction logic for Settings.xaml
     /// </summary>
-    public partial class Settings : UserControl
+    /// why WINDOW?
+    public partial class Settings : Window
     {
+        SettingsWindowViewModel setViewModel;
         public Settings()
         {
             InitializeComponent();
-
-
-            DataText = "";
+            setViewModel = new SettingsWindowViewModel();
+            DataContext = setViewModel;
         }
     }
 }
