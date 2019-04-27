@@ -76,7 +76,7 @@ namespace FlightSimulator.Model
             t.Start();
         }
 
-        void StopGetInfo()
+        public void StopGetInfo()
         {
             infoServer.ServerShouldStop = true;
         }
