@@ -72,6 +72,7 @@ namespace FlightSimulator.Model
                     Lat = simulatorInfo.Lat;
                 }
             });
+
             // start the task
             t.Start();
         }
