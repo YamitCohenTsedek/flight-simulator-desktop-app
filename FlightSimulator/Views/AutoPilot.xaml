@@ -18,7 +18,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="0">
-            <TextBox Name="AutoPilotTextBox" Background="{Binding Background, UpdateSourceTrigger=PropertyChanged}" 
+            <TextBox Name="AutoPilotTextBox" Background="{Binding BackgroundColor, UpdateSourceTrigger=PropertyChanged}" 
              Text="{Binding Commands, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Row="0" 
              FontSize="16" FontWeight="Bold" AcceptsReturn="True" TextWrapping="Wrap" AcceptsTab="True">
             </TextBox>

@@ -63,9 +63,9 @@ namespace FlightSimulator.Model
         void StartGetInfo()
         {
             // handling the information receiving in a new task
-            Task t = new Task(() =>
+            Thread t = new Thread(() =>
             {
-                while (infoServer.ServerShouldStop == false)
+                while (infoServer.IsServerShouldStop == false)
                 {
                     SimulatorInfo simulatorInfo = infoServer.GetInfoFromSimulator();
                     Lon = simulatorInfo.Lon;
@@ -79,7 +79,7 @@ namespace FlightSimulator.Model
 
         public void StopGetInfo()
         {
-            infoServer.ServerShouldStop = true;
+            infoServer.IsServerShouldStop = true;
         }
     }
 }

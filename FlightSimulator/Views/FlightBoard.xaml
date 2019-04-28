@@ -28,6 +28,15 @@
                 </LinearGradientBrush>
             </Button.Background>
             </Button>
+            <Button x:Name="Disconnect" Content="Disconnect" Command="{Binding DisconnectCommand}" FontWeight="Bold" FontSize="12" Margin="5 15 5 15" Padding="5 5 5 5">
+                <Button.Background>
+                    <LinearGradientBrush  StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="LightGray" Offset="0"/>
+                        <GradientStop Color="White" Offset="0.500"/>
+                        <GradientStop Color="LightGray" Offset="0.60"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
         </WrapPanel>
         <Grid>
             <Grid.Resources>
@@ -49,7 +58,8 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <TextBlock Style="{StaticResource LabelStyle}" LayoutTransform="{StaticResource rotate}" VerticalAlignment="Top" Grid.ColumnSpan="2" Margin="100,170,0,100" HorizontalAlignment="Left">Lon</TextBlock>
+            <TextBlock Style="{StaticResource LabelStyle}" LayoutTransform="{StaticResource rotate}" VerticalAlignment="Top"
+                       Grid.ColumnSpan="2" Margin="100,170,0,100" HorizontalAlignment="Left">Lon</TextBlock>
             <d3:ChartPlotter Grid.Row="0" Grid.Column="1" LegendVisible="False" Name="plotter" Grid.ColumnSpan="2" Margin="130,1,130,1">
             </d3:ChartPlotter>
             <TextBlock Grid.Row="1" Style="{StaticResource LabelStyle}" HorizontalAlignment="Center" Grid.Column="2" Margin="0,4,300,10">Lat</TextBlock>
