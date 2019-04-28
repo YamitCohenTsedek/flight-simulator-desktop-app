@@ -28,7 +28,6 @@ namespace FlightSimulator.Model
                 return instance;
             }
         }
-        //??
         public void Initialize() { instance = null; }
         // isSimulatorConnected Accessors 
         public bool IsConnectedToSimulator { get; set; } = false;

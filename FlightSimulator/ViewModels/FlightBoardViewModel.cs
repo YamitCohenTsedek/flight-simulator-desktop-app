@@ -9,14 +9,14 @@ namespace FlightSimulator.ViewModels
 {
     public class FlightBoardViewModel : BaseNotify
     {
-         
+
 
         private FlightBoardModel flightBoardModel;
 
         public event PropertyChangedEventHandler PropertyChanged;
         // creat the show of settings window
         private Settings settings = new Settings();
-        
+
 
         public double Lon { get; set; }
 
@@ -41,21 +41,21 @@ namespace FlightSimulator.ViewModels
             if (PropertyChanged != null)
                 PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propName));
         }
-       
+
 
         #region Connect Command
         // the command of connect for settings button
-        private ICommand connectsCommand; 
+        private ICommand connectsCommand;
         public ICommand ConnectsCommand { get { return connectsCommand ?? (connectsCommand = new CommandHandler(() => OnConnectClick())); } }
 
         void OnConnectClick()
         {
             // if there is a connection so creat new collection and command  
-            if (flightBoardModel.IsSimulatorConnected()) 
+            if (flightBoardModel.IsSimulatorConnected())
             {
                 flightBoardModel.StopGetInfo();
                 CommandsClient.Instance.Initialize();
-                System.Threading.Thread.Sleep(1000); 
+                System.Threading.Thread.Sleep(1000);
             }
             new Thread(delegate ()
             {
@@ -67,15 +67,15 @@ namespace FlightSimulator.ViewModels
         }
 
 
-         #region Setting Command
+        #region Setting Command
         //the command of the butten of setting
-        private ICommand settingsCommand; 
+        private ICommand settingsCommand;
         public ICommand SettingsCommand { get { return settingsCommand ?? (settingsCommand = new CommandHandler(() => OnSttingsClick())); } }
 
         //in order to creat one setting window
         void OnSttingsClick()
         {
-            
+
             if (!settings.IsLoaded)
             {
                 settings = new Settings();
@@ -94,7 +94,7 @@ namespace FlightSimulator.ViewModels
             }
         }
 
-     
-       
+
+
     }
 }

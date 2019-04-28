@@ -73,7 +73,7 @@ namespace FlightSimulator.Model
                 }
             });
 
-            // start the task
+            // start the thread
             t.Start();
         }
 
