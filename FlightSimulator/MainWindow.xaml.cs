@@ -1,4 +1,5 @@
 ﻿using System;
+using FlightSimulator.Model;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,11 +26,6 @@ namespace FlightSimulator
         }
 
         private void FlightBoard_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void FlightBoard_Loaded_1(object sender, RoutedEventArgs e)
         {
 
         }

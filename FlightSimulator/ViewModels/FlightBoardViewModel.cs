@@ -9,15 +9,13 @@ namespace FlightSimulator.ViewModels
 {
     public class FlightBoardViewModel : BaseNotify
     {
-
-
         private FlightBoardModel flightBoardModel;
 
         public event PropertyChangedEventHandler PropertyChanged;
-        // creat the show of settings window
+
+        // create the instance of settings window
         private Settings settings = new Settings();
-
-
+       
         public double Lon { get; set; }
 
         public double Lat { get; set; }
@@ -44,13 +42,13 @@ namespace FlightSimulator.ViewModels
 
 
         #region Connect Command
-        // the command of connect for settings button
+        // the command of connect for connect button
         private ICommand connectsCommand;
         public ICommand ConnectsCommand { get { return connectsCommand ?? (connectsCommand = new CommandHandler(() => OnConnectClick())); } }
 
         void OnConnectClick()
         {
-            // if there is a connection so creat new collection and command  
+            // if there is a connection  
             if (flightBoardModel.IsSimulatorConnected())
             {
                 flightBoardModel.StopGetInfo();
@@ -61,19 +59,20 @@ namespace FlightSimulator.ViewModels
             {
                 CommandsClient.Instance.Connect(ApplicationSettingsModel.Instance.FlightServerIP, ApplicationSettingsModel.Instance.FlightCommandPort); // conect to simulator
             }).Start();
-            flightBoardModel.OpenServer(ApplicationSettingsModel.Instance.FlightServerIP, ApplicationSettingsModel.Instance.FlightInfoPort); // open info server
+            // open info server
+            flightBoardModel.OpenServer(ApplicationSettingsModel.Instance.FlightServerIP, ApplicationSettingsModel.Instance.FlightInfoPort);
 
 
         }
-
+        #endregion
 
         #region Setting Command
-        //the command of the butten of setting
+        //the command of the button of setting
         private ICommand settingsCommand;
-        public ICommand SettingsCommand { get { return settingsCommand ?? (settingsCommand = new CommandHandler(() => OnSttingsClick())); } }
+        public ICommand SettingsCommand { get { return settingsCommand ?? (settingsCommand = new CommandHandler(() => OnSettingsClick())); } }
 
-        //in order to creat one setting window
-        void OnSttingsClick()
+        // in order to create one setting window
+        void OnSettingsClick()
         {
 
             if (!settings.IsLoaded)
@@ -83,18 +82,24 @@ namespace FlightSimulator.ViewModels
             }
             else settings.Show();
         }
+        #endregion
 
-        #endregion
-        #endregion
-        public void OnClickDisconnect()
+        #region Disconnect Command
+        private ICommand disconnectCommand;
+        public ICommand DisconnectCommand {
+            get {
+                return disconnectCommand ?? (disconnectCommand = new CommandHandler(() => OnDisconnectClick()));
+            }
+        }
+
+        public void OnDisconnectClick()
         {
             if (flightBoardModel.IsSimulatorConnected())
             {
                 flightBoardModel.StopGetInfo();
             }
         }
-
-
+        #endregion
 
     }
 }

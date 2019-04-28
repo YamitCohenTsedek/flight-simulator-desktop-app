@@ -26,18 +26,18 @@
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
-        
+
         <!--AILERON-->
         <TextBlock Text="{Binding ElementName=Joy, Path=Aileron, StringFormat=0.0#}" Margin="0,0,20,0"
             HorizontalAlignment="Right" Grid.Row="0" FontWeight="Bold" Grid.Column="1" FontSize="20"/>
         <DockPanel HorizontalAlignment="Center" Grid.Column="1" Grid.Row="0">
-            <Label FontWeight="Bold" HorizontalAlignment="Center" FontSize="20"> ← aileron → </Label>
+            <Label FontWeight="Bold" HorizontalAlignment="Center" FontSize="20">← aileron →</Label>
         </DockPanel>
 
         <!--ELEVATOR-->
         <TextBlock Grid.Row="1"  Grid.Column="2" Style="{StaticResource LabelStyle}"
-            LayoutTransform="{StaticResource rotate}" VerticalAlignment="Center" Margin="20,0,0,5" > ← elevator → </TextBlock>
-        
+            LayoutTransform="{StaticResource rotate}" VerticalAlignment="Center" Margin="20,0,0,5" > ← elevator →</TextBlock>
+
         <TextBlock Text="{Binding ElementName=Joy, Path=Elevator, StringFormat=0.0#}" VerticalAlignment="Top"
             Grid.Row="1" Grid.Column="2"  LayoutTransform="{StaticResource rotate}" Margin="0,30,0,0" HorizontalAlignment="Center" FontWeight="Bold"  FontSize="20"/>
 
@@ -46,16 +46,16 @@
             <Slider x:Name="rudder_bar" Minimum="-1" Maximum="1" IsSnapToTickEnabled="True" Orientation="Horizontal"
                 Value="{Binding Rudder}" TickFrequency="0.1" Height="60"  TickPlacement="BottomRight"/>
         </DockPanel>
-        
+
         <DockPanel VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" Margin="10">
-            <Label DockPanel.Dock="Bottom" FontWeight="Bold" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" Margin="-30" FontSize="20"> ← rudder → </Label>
+            <Label DockPanel.Dock="Bottom" FontWeight="Bold" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" Margin="-30" FontSize="20">← rudder →</Label>
             <TextBlock Text="{Binding ElementName=rudder_bar, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Margin="0,20,0,0" FontSize="20" FontWeight="Bold"/>
 
         </DockPanel>
 
         <!--THRUTTLE-->
         <DockPanel Grid.Column="0" Grid.Row="1" LayoutTransform="{StaticResource rotate}">
-            <Label DockPanel.Dock="Bottom" FontWeight="Bold" HorizontalAlignment="Center" FontSize="20"> ← throttle  → </Label>
+            <Label DockPanel.Dock="Bottom" FontWeight="Bold" HorizontalAlignment="Center" FontSize="20">← throttle  →</Label>
             <TextBlock Text="{Binding ElementName=throttle_bar, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Left"
                 TextAlignment="Center" Margin="0,0,10,10" FontSize="20" FontWeight="Bold"/>
             <Slider x:Name="throttle_bar" IsSnapToTickEnabled="True" Minimum="-1" Maximum="1" Value="{Binding Throttle}" TickFrequency="0.1" Width="280"

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FlightSimulator"
         xmlns:Views="clr-namespace:FlightSimulator.Views"
         mc:Ignorable="d"
-        Title="Flight Simulator" Height="650" Width="950" >
+        Title="Flight Simulator" Height="650" Width="950">
     <DockPanel>
         <TextBlock FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" DockPanel.Dock="Top" Margin="-100 0 -90 20">
             <Run Foreground="Turquoise">Flight Simulator</Run>
@@ -17,7 +17,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
-                <Views:FlightBoard Loaded="FlightBoard_Loaded_1" Margin="-100 -40 -100 0"></Views:FlightBoard>
+                <Views:FlightBoard Loaded="FlightBoard_Loaded" Margin="-100 -40 -100 0"></Views:FlightBoard>
             </Grid>
             <Grid Grid.Column="1">
                 <TabControl FontWeight="Bold" FontSize="18">
