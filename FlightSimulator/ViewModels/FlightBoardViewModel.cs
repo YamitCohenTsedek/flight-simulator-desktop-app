@@ -11,9 +11,11 @@ namespace FlightSimulator.ViewModels
     {
         private Settings settingsChild = new Settings(); // settings window
 
-        private FlightBoardModel model;
+        private FlightBoardModel flightBoardModel;
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        // private bool isConnected = false;
 
         public double Lon { get; set; }
 
@@ -21,11 +23,11 @@ namespace FlightSimulator.ViewModels
 
         public FlightBoardViewModel()
         {
-            model = new FlightBoardModel(InfoServer.Instance);
-            model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
+            flightBoardModel = new FlightBoardModel(InfoServer.Instance);
+            flightBoardModel.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
             {
-                if (e.PropertyName == "Lat") Lat = model.Lat;
-                else if (e.PropertyName == "Lon") Lon = model.Lon;
+                if (e.PropertyName == "Lat") Lat = flightBoardModel.Lat;
+                else if (e.PropertyName == "Lon") Lon = flightBoardModel.Lon;
                 NotifyPropertyChanged(e.PropertyName);
             };
 
@@ -55,9 +57,9 @@ namespace FlightSimulator.ViewModels
 
         void OnConnectClick()
         {
-            if (model.IsSimulatorConnected()) // if there is a connection, establish new connections to info and commands
+            if (flightBoardModel.IsSimulatorConnected()) // if there is a connection, establish new connections to info and commands
             {
-                model.StopGetInfo();
+                flightBoardModel.StopGetInfo();
                 CommandsClient.Instance.Initialize();
                 System.Threading.Thread.Sleep(1000); // let info server finish last read
             }
@@ -65,13 +67,21 @@ namespace FlightSimulator.ViewModels
             {
                 CommandsClient.Instance.Connect(ApplicationSettingsModel.Instance.FlightServerIP, ApplicationSettingsModel.Instance.FlightCommandPort); // conect to simulator
             }).Start();
-            model.OpenServer(ApplicationSettingsModel.Instance.FlightServerIP, ApplicationSettingsModel.Instance.FlightInfoPort); // open info server
+            flightBoardModel.OpenServer(ApplicationSettingsModel.Instance.FlightServerIP, ApplicationSettingsModel.Instance.FlightInfoPort); // open info server
 
+ 
+        }
 
+        public void OnClickDisconnect()
+        {
+            if (flightBoardModel.IsSimulatorConnected())
+            {
+                flightBoardModel.StopGetInfo();
+            }
         }
 
         #endregion
-        public void NotifyPropertyChanged(string propName)
+        public new void NotifyPropertyChanged(string propName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }

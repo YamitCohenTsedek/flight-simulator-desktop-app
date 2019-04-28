@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using System.IO;
 
 
 namespace FlightSimulator.Model
 {
+    // a struct that represents the info that we want to get from the simulator - the lon and the lat
     public struct SimulatorInfo
     {
         public double Lon;
@@ -19,11 +19,14 @@ namespace FlightSimulator.Model
         }
     }
 
+    // the current device as a server
     class InfoServer
     {
         private IPEndPoint endPoint;
+        // the simulator is the client and current device is the server
         private TcpListener currentDeviceServer;
         private TcpClient simulatorClient;
+        // a reader for reading the information from the simulator
         private BinaryReader reader;
         private static InfoServer instance = null;
 
@@ -44,7 +47,7 @@ namespace FlightSimulator.Model
         public bool IsSimulatorConnected { get; set; } = false;
 
         // ServerShouldStop Accessors 
-        public bool ServerShouldStop { get; set; } = false;
+        public bool IsServerShouldStop { get; set; } = false;
 
         public void OpenSocket(string ip, int portNumber)
         {
@@ -62,7 +65,7 @@ namespace FlightSimulator.Model
             currentDeviceServer.Stop();
             IsSimulatorConnected = false;
             simulatorClient?.Close();
-            reader.Dispose();
+            // reader.Dispose();
         }
 
         public SimulatorInfo GetInfoFromSimulator()
