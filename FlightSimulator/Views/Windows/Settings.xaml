@@ -34,7 +34,7 @@
         <TextBlock Grid.Row="2"  Grid.Column="0" Text="      Flight Command Port:"/>
         <TextBox x:Name="commandPort" Grid.Row="2" Grid.Column="1" Text="{Binding FlightCommandPort}"></TextBox>
         <WrapPanel Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Margin="154,43" Width="134">
-            <Button x:Name="OK" Command="{Binding OkCommand}" FontSize="12" FontWeight="Bold" Content="OK" Margin="5" Padding="5">
+            <Button x:Name="OK" Command="{Binding OKCommand}" FontSize="12" FontWeight="Bold" Content="OK" Margin="5" Padding="5">
                 <Button.Background>
                     <LinearGradientBrush  StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="LightGray" Offset="0"/>

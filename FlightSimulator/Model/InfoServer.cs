@@ -6,7 +6,7 @@ using System.IO;
 
 namespace FlightSimulator.Model
 {
-    // a struct that represents the info that we want to get from the simulator - the lon and the lat
+    // A struct that represents the info that we want to get from the simulator - the lon and the lat.
     public struct SimulatorInfo
     {
         public double Lon;
@@ -19,20 +19,20 @@ namespace FlightSimulator.Model
         }
     }
 
-    // the current device as a server
+    // The current device as a server.
     class InfoServer
     {
         private IPEndPoint endPoint;
-        // the simulator is the client and current device is the server
+        // The simulator is the client and the current device is the server.
         private TcpListener currentDeviceServer;
         private TcpClient simulatorClient;
-        // a reader for reading the information from the simulator
+        // A reader for reading the information from the simulator.
         private BinaryReader reader;
         private static InfoServer instance = null;
 
         private InfoServer() { }
 
-        // InfoServer singleton
+        // InfoServer singleton.
         public static InfoServer Instance
         {
             get
@@ -43,10 +43,10 @@ namespace FlightSimulator.Model
             }
         }
 
-        // IsSimulatorConnected Accessors 
+        // IsSimulatorConnected Accessors.
         public bool IsSimulatorConnected { get; set; } = false;
 
-        // ServerShouldStop Accessors 
+        // ServerShouldStop Accessors.
         public bool IsServerShouldStop { get; set; } = false;
 
         public void OpenSocket(string ip, int portNumber)
@@ -65,7 +65,6 @@ namespace FlightSimulator.Model
             currentDeviceServer.Stop();
             IsSimulatorConnected = false;
             simulatorClient?.Close();
-            // reader.Dispose();
         }
 
         public SimulatorInfo GetInfoFromSimulator()
@@ -79,14 +78,14 @@ namespace FlightSimulator.Model
                 reader = new BinaryReader(simulatorClient.GetStream());
             }
             char currentChar = reader.ReadChar();
-            // read the info as long as it is not a '\n' character
+            // Read the info as long as the current character is not '\n'.
             while (currentChar != '\n')
             {
                 infoStr += currentChar;
                 currentChar = reader.ReadChar();
             }
             string[] splitInfo = infoStr.Split(delimiter);
-            // splitInfo[0] is the lan and splitInfo[1] is the lot 
+            // splitInfo[0] is the lan and splitInfo[1] is the lot.
             return new SimulatorInfo(Convert.ToDouble(splitInfo[0]),
                 Convert.ToDouble(splitInfo[1]));
         }

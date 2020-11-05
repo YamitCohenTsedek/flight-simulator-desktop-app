@@ -4,7 +4,7 @@ namespace FlightSimulator.Model
 {
     class ManualModel
     {
-        // send every command to the simulator in a new thread
+        // Send each command to the simulator in a new separate thread.
         public void SendCommandsToSimulator(string info)
         {
             if (CommandsClient.Instance.IsConnectedToSimulator)

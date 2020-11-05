@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace FlightSimulator.Model
 {
-    class FlightBoardModel: BaseNotify
+    class FlightBoardModel : BaseNotify
     {
         private double lon;
         private double lat;
-        // an instance of Info class (the server)
+        // An instance of the info server.
         private InfoServer infoServer;
 
-        // PropertyChanged event of the model
+        // PropertyChanged event of the model.
         public new event PropertyChangedEventHandler PropertyChanged;
 
         public FlightBoardModel(InfoServer info) => infoServer = info;
@@ -24,7 +24,7 @@ namespace FlightSimulator.Model
             set
             {
                 lon = value;
-                // notify the observer (FlightBoaredViewModel) that Lon property has changed)
+                // Notify the observer (FlightBoaredViewModel) that Lon property has changed.
                 NotifyPropertyChanged("Lon");
             }
         }
@@ -36,12 +36,12 @@ namespace FlightSimulator.Model
             set
             {
                 lat = value;
-                // notify the observer (FlightBoaredViewModel) that Lat property has changed)
+                // Notify the observer (FlightBoaredViewModel) that Lat property has changed.
                 NotifyPropertyChanged("Lat");
             }
         }
 
-        // notify the observers when the event PropertyChanged occures
+        // Notify the observers when the PropertyChanged event occures.
         public new void NotifyPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -59,10 +59,10 @@ namespace FlightSimulator.Model
             StartGetInfo();
         }
 
-        // start getting info from the server
+        // Start getting info from the server.
         void StartGetInfo()
         {
-            // handling the information receiving in a new task
+            // Handle the receiving of the information in a new task.
             Thread t = new Thread(() =>
             {
                 while (infoServer.IsServerShouldStop == false)
@@ -73,10 +73,11 @@ namespace FlightSimulator.Model
                 }
             });
 
-            // start the thread
+            // Start the task
             t.Start();
         }
 
+        // Stop getting info from the server.
         public void StopGetInfo()
         {
             infoServer.IsServerShouldStop = true;

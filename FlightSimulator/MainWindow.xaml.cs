@@ -15,9 +15,7 @@ using System.Windows.Shapes;
 
 namespace FlightSimulator
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    // Interaction logic for MainWindow.xaml.
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -27,7 +25,6 @@ namespace FlightSimulator
 
         private void FlightBoard_Loaded(object sender, RoutedEventArgs e)
         {
-
         }
     }
 }

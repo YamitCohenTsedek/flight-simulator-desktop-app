@@ -7,7 +7,7 @@ using Microsoft.Research.DynamicDataDisplay.DataSources;
 
 namespace FlightSimulator.Views
 {
-    // Interaction logic for FlightBoard.xaml
+    // Interaction logic for FlightBoard.xaml.
     public partial class FlightBoard : UserControl
     {
         ObservableDataSource<Point> planeLocations;
@@ -23,7 +23,7 @@ namespace FlightSimulator.Views
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            // Set identity mapping of point in collection to point on plot
+            // Set identity mapping of point in collection to point on plot.
             planeLocations = new ObservableDataSource<Point>();
             planeLocations.SetXYMapping(p => p);
             plotter.AddLineGraph(planeLocations, 2, "Route");
@@ -31,10 +31,10 @@ namespace FlightSimulator.Views
 
         private void Vm_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if(e.PropertyName.Equals("Lat") || e.PropertyName.Equals("Lon"))
+            if (e.PropertyName.Equals("Lat") || e.PropertyName.Equals("Lon"))
             {
                 Point p1 = new Point(flightBoardViewModel.Lat, flightBoardViewModel.Lon);
-                if(p1.X != 0 && p1.Y != 0)
+                if (p1.X != 0 && p1.Y != 0)
                 {
                     planeLocations.AppendAsync(Dispatcher, p1);
                 }
@@ -44,4 +44,3 @@ namespace FlightSimulator.Views
     }
 
 }
-

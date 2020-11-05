@@ -8,9 +8,7 @@ using System.Windows;
 
 namespace FlightSimulator
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
+    // Interaction logic for App.xaml.
     public partial class App : Application
     {
     }

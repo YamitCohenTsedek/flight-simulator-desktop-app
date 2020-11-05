@@ -14,6 +14,9 @@ namespace FlightSimulator.ViewModels.Windows
     public class SettingsWindowViewModel : BaseNotify
     {
         private ISettingsModel model;
+
+        public Action CloseAction { get; set; }
+
         public SettingsWindowViewModel()
         {
             this.model = new ApplicationSettingsModel();
@@ -69,18 +72,20 @@ namespace FlightSimulator.ViewModels.Windows
         }
 
         #region Commands
-        #region ClickCommand
-        private ICommand _clickCommand;
-        public ICommand ClickCommand
+
+        #region OKCommand
+        private ICommand _okCommand;
+        public ICommand OKCommand
         {
             get
             {
-                return _clickCommand ?? (_clickCommand = new CommandHandler(() => OnClick()));
+                return _okCommand ?? (_okCommand = new CommandHandler(() => OnOKClick()));
             }
         }
-        private void OnClick()
+        private void OnOKClick()
         {
             model.SaveSettings();
+            CloseAction();
         }
         #endregion
 
@@ -96,6 +101,7 @@ namespace FlightSimulator.ViewModels.Windows
         private void OnCancel()
         {
             model.ReloadSettings();
+            CloseAction();
         }
         #endregion
         #endregion

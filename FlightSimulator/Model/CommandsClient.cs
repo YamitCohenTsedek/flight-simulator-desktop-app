@@ -9,14 +9,14 @@ namespace FlightSimulator.Model
     class CommandsClient : IDisposable
     {
         private IPEndPoint endPoint;
-        // the current devics as a client
+        // The current device as a client.
         private TcpClient currentDeviceClient;
         private StreamWriter writer;
         private static CommandsClient instance = null;
 
         private CommandsClient() { }
 
-        // Commands singleton
+        // Commands singleton.
         public static CommandsClient Instance
         {
             get
@@ -28,16 +28,18 @@ namespace FlightSimulator.Model
                 return instance;
             }
         }
+
         public void Initialize() { instance = null; }
-        // isSimulatorConnected Accessors 
+
+        // isSimulatorConnected Accessors.
         public bool IsConnectedToSimulator { get; set; } = false;
 
-        // connect as a client to the simulator which is the server
+        // Connect as a client to the simulator which is the server.
         public void Connect(string ip, int portNumber)
         {
             endPoint = new IPEndPoint(IPAddress.Parse(ip), portNumber);
             currentDeviceClient = new TcpClient();
-            // try to connect to the server until sucess
+            // Try to connect to the server until success.
             while (currentDeviceClient.Connected == false)
             {
                 try
@@ -53,13 +55,13 @@ namespace FlightSimulator.Model
             writer = new StreamWriter(currentDeviceClient.GetStream());
         }
 
-        // send the commands to the simulator
-         public void SendCommandsToSimulator(string info)
+        // Send the commands to the simulator.
+        public void SendCommandsToSimulator(string info)
         {
             char delimiter = '\n';
             int sleepMillisecons = 2000;
             string currentCommand = "";
-            // if there is a content in info
+            // If there is a content in info:
             if (info != null && info != "")
             {
                 string[] commandsStr = info.Split(delimiter);
@@ -70,7 +72,7 @@ namespace FlightSimulator.Model
                     {
                         writer.WriteLine(currentCommand);
                         writer.Flush();
-                        // sleep for 2000 milliseconds (delay of 2 seconds)
+                        // Sleep for 2000 milliseconds (delay of 2 seconds).
                         Thread.Sleep(sleepMillisecons);
                     }
                     finally
@@ -82,7 +84,7 @@ namespace FlightSimulator.Model
 
         public void Dispose()
         {
-           writer.Dispose();
+            writer.Dispose();
         }
     }
 }

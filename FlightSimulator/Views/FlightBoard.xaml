@@ -10,7 +10,7 @@
       
     <DockPanel Margin="10,39,10,0">
         <WrapPanel DockPanel.Dock="Top" HorizontalAlignment="Center">
-            <Button x:Name="Connect" Content="Connect" Command="{Binding ConnectsCommand}" Margin="0 15 5 15" FontWeight="Bold" FontSize="12" Padding="5 5 5 5">
+            <Button x:Name="Connect" Content="Connect" Command="{Binding ConnectCommand}" Margin="0 15 5 15" FontWeight="Bold" FontSize="12" Padding="5 5 5 5">
             <Button.Background>
                 <LinearGradientBrush  StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="LightGray" Offset="0"/>

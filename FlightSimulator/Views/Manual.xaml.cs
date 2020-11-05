@@ -1,4 +1,4 @@
-﻿using FlightSimulator.ViewModels;
+﻿using FlightSimulator.ViewModels.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +16,7 @@ using System.Windows.Shapes;
 
 namespace FlightSimulator.Views
 {
-    /// <summary>
-    /// Interaction logic for Manual.xaml
-    /// </summary>
+    // Interaction logic for Manual.xaml.
     public partial class Manual : UserControl
     {
         public Manual()

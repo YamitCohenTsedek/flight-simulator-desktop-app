@@ -5,7 +5,7 @@ namespace FlightSimulator.Views
 {
     public partial class AutoPilot : UserControl
     {
-        // Interaction logic for AutoPilot.xaml
+        // Interaction logic for AutoPilot.xaml.
         private AutoPilotViewModel autoPilotviewModel;
 
         public AutoPilot()

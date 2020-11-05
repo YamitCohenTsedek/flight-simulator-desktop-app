@@ -1,7 +1,7 @@
 ﻿using FlightSimulator.Model;
 using System;
 
-namespace FlightSimulator.ViewModels
+namespace FlightSimulator.ViewModels.Windows
 {
     class ManualViewModel
     {
@@ -47,7 +47,7 @@ namespace FlightSimulator.ViewModels
             set
             {
                 string throttleValueStr = Convert.ToString(value);
-                string throttleCommnad = "set /controls/flight/throttle " + throttleValueStr;
+                string throttleCommnad = "set /controls/engines/current-engine/throttle" + throttleValueStr;
                 manualModel.SendCommandsToSimulator(throttleCommnad);
             }
         }

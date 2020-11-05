@@ -8,10 +8,12 @@ namespace FlightSimulator.Model.Interface
 {
     public interface ISettingsModel
     {
-        string FlightServerIP { get; set; }          // The IP Of the Flight Server
-        int FlightInfoPort { get; set; }           // The Port of the Flight Server
-        int FlightCommandPort { get; set; }           // The Port of the Flight Server
-
+        // The IP Of the flight server.
+        string FlightServerIP { get; set; }
+        // The info port of the flight server.
+        int FlightInfoPort { get; set; }
+        // The command port of the flight server.
+        int FlightCommandPort { get; set; } 
         void SaveSettings();
         void ReloadSettings();
     }
