@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Flight Simulator" Height="650" Width="950">
     <DockPanel>
-        <TextBlock FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" DockPanel.Dock="Top" Margin="-100 0 -90 20">
+        <TextBlock FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" DockPanel.Dock="Top" Margin="-100 10 -90 20">
             <Run Foreground="Turquoise">Flight Simulator</Run>
         </TextBlock>
         <Grid>

@@ -21,6 +21,7 @@ namespace FlightSimulator.ViewModels.Windows
                 manualModel.SendCommandsToSimulator(aileronCommnad);
             }
         }
+
         public double Elevator
         {
             get => elevator;
@@ -31,6 +32,7 @@ namespace FlightSimulator.ViewModels.Windows
                 manualModel.SendCommandsToSimulator(elevatorCommnad);
             }
         }
+
         public double Rudder
         {
             get => rudder;
@@ -41,16 +43,16 @@ namespace FlightSimulator.ViewModels.Windows
                 manualModel.SendCommandsToSimulator(rudderCommnad);
             }
         }
+
         public double Throttle
         {
             get => throttle;
             set
             {
                 string throttleValueStr = Convert.ToString(value);
-                string throttleCommnad = "set /controls/engines/current-engine/throttle" + throttleValueStr;
+                string throttleCommnad = "set /controls/engines/current-engine/throttle " + throttleValueStr;
                 manualModel.SendCommandsToSimulator(throttleCommnad);
             }
         }
-
     }
 }

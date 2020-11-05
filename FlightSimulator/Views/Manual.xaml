@@ -16,7 +16,7 @@
                 </TextBlock.LayoutTransform>
             </TextBlock>
             <Slider Name="throttleSlider" Maximum="1" Minimum="-1" Orientation="Vertical" TickFrequency="0.05" IsSnapToTickEnabled="True" TickPlacement="TopLeft"
-                    Value="{Binding Throttle,UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}"/>
+                    Value="{Binding Throttle, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}"/>
             <TextBlock Text ="{Binding ElementName=throttleSlider, UpdateSourceTrigger=PropertyChanged, Path=Value, StringFormat={}{0:0.##}}" FontSize="16" Width="40"/>
         </StackPanel>
 
@@ -24,7 +24,7 @@
         <StackPanel DockPanel.Dock="Bottom" Margin="0 10 40 0">
             <TextBlock Name="rudderValue" Text ="{Binding ElementName=rudderSlider,
                                 UpdateSourceTrigger=PropertyChanged, Path=Value, StringFormat={}{0:0.##}}" FontSize="16" HorizontalAlignment="Right"/>
-            <Slider Name="rudderSlider"  Maximum="1" Minimum="-1" TickFrequency="0.05" IsSnapToTickEnabled="True" TickPlacement="BottomRight" 
+            <Slider Name="rudderSlider" Maximum="1" Minimum="-1" TickFrequency="0.05" IsSnapToTickEnabled="True" TickPlacement="BottomRight" 
                     Value="{Binding Rudder, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}"/>
             <TextBlock Text="&#x2190; rudder &#x2192;" HorizontalAlignment="Center"/>
         </StackPanel>
