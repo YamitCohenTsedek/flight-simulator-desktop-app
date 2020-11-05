@@ -1,5 +1,5 @@
 ## flight-simulator-desktop-app <br/>
-In this project, we built a GUI (WPF application), which allows us to control an aircraft on the FlightGear simulator, using the [MVVM architecture](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel).<br/><br/>
+In this project, we built a GUI (WPF application), which allows us to control an aircraft on the FlightGear simulator, using the [MVVM architecture](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel), Client-Server architecture, and parallel programming.<br/><br/>
 
 We set up 2 TCP communication channels built into our code as follows:<br/>
 * **Commands Channel** - in this channel, we connect as a client to the flight simulator which serves as a server. In this channel we send basic set commands to the flight simulator.<br/><br/>
