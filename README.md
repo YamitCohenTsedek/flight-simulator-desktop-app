@@ -25,11 +25,10 @@ In this monitor we have 2 control options, the transition from one option to ano
 * **Manual control** - in this component we implemented a joystick with which we can determine the values of aileron, elevators, rudder, and throttle. The values of the throttle and the rudder are determined using a slider which contains values in the range [-1,1].
 The values of the aileron and the elevators are determined by the Joystick Control, which is in the Joystick.xaml file. Any change of one of these values leads to the values of the aircraft being updated by the Commands channel.<br/>
 
-* **Automatic control** - this component contains a TextBox control that allows us to write Set commands in the Commands channel. This control contains 2 buttons:<br/>
-* **OK button** - executes all the commands in the Commands channel one by one, when between each command there is a delay of 2 seconds so that we can see it in the simulator (this does not mean that the monitor is frozen while sending the information).<br/>
-We assume that the OK button would be pressed only once for each commands sending, and there would be no simultaneous sending of 2 different sets of commands.<br/>
-
-* **Clear Button** - Cleans the command screen. When the user enters commands that have not yet reached the server, the background of the TextBox will be painted red bright, and after sending the commands - it will back to white.<br/><br/><br/>
+* **Automatic control** - this component contains a TextBox control that allows us to write Set commands in the Commands channel. This control contains 2 buttons:<br/><br/> 
+<tab><tab> * **OK button** - executes all the commands in the Commands channel one by one, when between each command there is a delay of 2 seconds so that we can see it in the simulator (this does not mean that the monitor is frozen while sending the information).<br/>
+We assume that the OK button would be pressed only once for each commands sending, and there would be no simultaneous sending of 2 different sets of commands.<br/><br/> 
+ <tab><tab> * **Clear Button** - Cleans the command screen. When the user enters commands that have not yet reached the server, the background of the TextBox will be painted red bright, and after sending the commands - it will back to white.<br/><br/><br/>
 
 
 ### Watch on YouTube:
