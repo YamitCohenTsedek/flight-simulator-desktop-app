@@ -32,5 +32,5 @@ We assume that the OK button would be pressed only once for each commands sendin
 
 
 ### Watch on YouTube:
-[![](https://user-images.githubusercontent.com/45918740/98307490-87fa8b80-1fce-11eb-9b4e-2cb9e0f6bba6.jpg)](https://www.youtube.com/watch?v=XAFByp0WZ6w)
+[![](https://user-images.githubusercontent.com/45918740/98307490-87fa8b80-1fce-11eb-9b4e-2cb9e0f6bba6.jpg)](https://youtu.be/HGgdXiNtY_E)
 
