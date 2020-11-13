@@ -1,5 +1,5 @@
 ## flight-simulator-desktop-app <br/>
-In this project, we built a GUI (WPF application), which allows us to control an aircraft on the FlightGear simulator, using the [MVVM architecture](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel), Client-Server architecture, and parallel programming.<br/><br/>
+In this project, we built a GUI (WPF application), which allows us to control manually and automatically an aircraft on the FlightGear simulator, and showing its route on a graph-like monitor, using the [MVVM architecture](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel), Client-Server architecture, and parallel programming.<br/><br/>
 
 We set up 2 TCP communication channels built into our code as follows:<br/>
 * **Commands Channel** - in this channel, we connect as a client to the flight simulator which serves as a server. In this channel we send basic set commands to the flight simulator.<br/><br/>
@@ -17,7 +17,7 @@ In this component, there are 2 buttons:<br/>
 
 * **Settings button** - this button allows us to change the settings related to operating the system. This window allows us to change the settings of the server's IP address as well as change the port communication channels. These settings are saved in the [App.config](https://github.com/YamitCohenTsedek/flight-simulator-desktop-app/blob/master/FlightSimulator/App.config) file. We got the [ApplicationSettingsModel.cs](https://github.com/YamitCohenTsedek/flight-simulator-desktop-app/blob/master/FlightSimulator/Model/ApplicationSettingsModel.cs) class which knows how to read these settings and link them to suitable Properties. After changing the IP & port addresses, this data will be saved (however, the reconnection of the communication channels will take place only after pressing the Connect button again or restarting the system).<br/><br/>
 
-In the flight screen, appears a graph-like control. In this graph we show the flight path of our aircraft. The flight path is determined by the data sent in the Info channel, from which we want to sample the lat & lon values and display them in the graph (the UserControl called FlightBoard.xaml allows scrolling the graph back and forth, so that there is no fear that the aircraft will go beyond the limits of the display).<br/> 
+In the flight screen, appears a graph-like monitor. In this graph we show the flight route of our aircraft. The flight route is determined by the data sent in the Info channel, from which we want to sample the lat & lon values and display them in the graph (the UserControl called FlightBoard.xaml allows scrolling the graph back and forth, so that there is no fear that the aircraft will go beyond the limits of the display).<br/> 
 The route shown is the route taken by the aircraft.<br/><br/>
 
 ### Control monitor
